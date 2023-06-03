@@ -10,13 +10,23 @@
 const env = "DEV"; // Toggle between these possible values "DEV" | "STAGE" | "PROD"
 let databaseCredential = "devuser:password";
 
-switch (env) {
+switch (env.toUpperCase) {
+
+case "DEV" :
+    databaseCredential = "devuser:password";
+    break;
+
 case "STAGE" :
     databaseCredential = "stageuser:password";
 break;
+
 case "PROD" :
     databaseCredential = "produser:password";
 break;
+
+default :
+console.log(`No credentials available for environment ${env}`);
+return;
 
 }
 
